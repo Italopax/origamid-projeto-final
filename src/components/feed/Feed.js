@@ -9,15 +9,17 @@ const Feed = ({user})=>{
   const [infinite, setInfinite] = React.useState(true);
 
   React.useEffect(()=>{
-    const wait = false;
+    let wait = false;
     function infiniteScroll () {
       if(infinite){
-        const scrool = window.scrollY
+        const scrool = window.scrollY;
         const height = document.body.offsetHeight - window.innerHeight;
         if(scrool > height * .75 && !wait){
           setPages((pages) => [...pages, pages.length + 1])
           wait = true;
-          setTimeout(() => wait = false, 500)
+          setTimeout(() => {
+            wait = false
+          }, 500)
         }
       }
     }
