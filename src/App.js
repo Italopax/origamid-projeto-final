@@ -9,6 +9,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { UserStorage } from './UserContext';
 import ProtectedRoute from './components/helper/ProtectedRoute';
 import { UserContext } from './UserContext';
+import Photo from './components/photo/Photo';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route element={<ProtectedRoute />}>
               <Route path="conta/*" element={<User />} />
             </Route>
+            <Route path="foto/:id" element={<Photo />} />
           </Routes>
           <Footer />
         </UserStorage>
